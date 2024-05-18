@@ -22,9 +22,9 @@ class Professor(db.Model):
 
 class Emprestimo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    data_emprestimo = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     brinquedo_id = db.Column(db.Integer, db.ForeignKey('brinquedo.id'), nullable=False)
     professor_id = db.Column(db.Integer, db.ForeignKey('professor.id'), nullable=False)
+    data_emprestimo = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
     def __repr__(self):
         return f'<Emprestimo {self.id}>'
