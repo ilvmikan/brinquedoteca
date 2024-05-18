@@ -6,7 +6,7 @@
 <h1>Lista de Professores</h1>
 <ul>
     {% for professor in professores %}
-        <li><a href="{{ url_for('perfil_professor', id=professor.id) }}">{{ professor.nome }}</a></li>
+        <li><a href="{{ url_for('detalhes_professor', id=professor.id) }}">{{ professor.nome }}</a></li>
     {% endfor %}
 </ul>
 

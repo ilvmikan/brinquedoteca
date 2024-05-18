@@ -7,10 +7,15 @@
 <h1>Lista de Brinquedos</h1>
 <ul>
     {% for brinquedo in brinquedos %}
-        <li>{{ brinquedo.nome }} - {{ brinquedo.categoria }} - {{ 'Disponível' if brinquedo.disponivel else 'Indisponível' }}
+        <li>
+            {{ brinquedo.nome }} - {{ brinquedo.categoria }} - 
+            {% if brinquedo.disponivel %}
+                Disponível
+            {% else %}
+                Indisponível - Emprestado por: {{ brinquedo.emprestimos[0].professor.nome }} em {{ brinquedo.emprestimos[0].data_emprestimo.strftime('%d/%m/%Y às %H:%M') }}
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
 
 {% endblock %}
-

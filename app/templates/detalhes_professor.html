@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+
+<div>
+    <h1>Perfil do Professor</h1>
+    <p><strong>Nome:</strong> {{ professor.nome }}</p>
+</div>
+
+<h1>Brinquedos pegos por {{ professor.nome }}</h1>
+{% if emprestimos %}
+<ul>
+    {% for emprestimo in emprestimos %}
+    <li>{{ emprestimo.brinquedo.nome }} - Foi pego emprestado em {{ emprestimo.data_emprestimo.strftime('%d/%m/%Y às %H:%M') }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>O professor não pegou nenhum brinquedo.</p>
+{% endif %}
+
+{% endblock %}
+
