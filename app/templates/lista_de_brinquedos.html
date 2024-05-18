@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+
+<h1>Lista de Brinquedos</h1>
+<ul>
+    {% for brinquedo in brinquedos %}
+        <li>{{ brinquedo.nome }} - {{ brinquedo.categoria }} - {{ 'Disponível' if brinquedo.disponivel else 'Indisponível' }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

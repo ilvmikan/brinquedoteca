@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Brinquedos</h1>
+    <div>
+        <!-- Lista de Brinquedos -->
+        <!-- Aqui você pode iterar sobre os brinquedos e exibi-los -->
+    </div>
+</div>
+
+<div>
+    <h1>Professores</h1>
+    <div>
+        <!-- Lista de Professores -->
+        <!-- Aqui você pode iterar sobre os professores e exibi-los -->
+    </div>
+</div>
+
+<div>
+    <h1>Empréstimo</h1>
+    <div>
+        <form method="POST" action="{{ url_for('index') }}">
+            {{ form.hidden_tag() }}  <!-- CSRF Token -->
+            {{ form.nome_do_professor_ou_id.label }}<br>
+            {{ form.nome_do_professor_ou_id(size=32) }}<br>
+            {{ form.nome_do_brinquedo_ou_id.label }}<br>
+            {{ form.nome_do_brinquedo_ou_id(size=32) }}<br>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+</div>
+{% endblock %}

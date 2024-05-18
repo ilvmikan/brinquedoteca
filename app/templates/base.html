@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+    <a href="/"><img src="../static/images/PERFEITA_LOGO.jpg" width="105" height="105" alt="LOGO"></a>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        <ul>
+            <li><a href="{{ url_for('lista_de_brinquedos')}}">Todos os brinquedos</a></li>
+            <li><a href="{{ url_for('lista_de_professores')}}">Todos os professores</a></li>
+            <li><a href="{{ url_for('add_brinquedo')}}">Adicionar brinquedo</a></li>
+            <li><a href="{{ url_for('add_professor')}}">Adicionar professor</a></li>
+        </ul>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
