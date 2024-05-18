@@ -21,3 +21,9 @@ def add_brinquedo():
 def lista_de_brinquedos():
     brinquedos = Brinquedo.query.all()
     return render_template('lista_de_brinquedos.html', brinquedos=brinquedos)
+
+@app.route('/brinquedos/<int:id>')
+def detalhes_brinquedo(id):
+    brinquedo = Brinquedo.query.get_or_404(id)
+    emprestimos = brinquedo.emprestimos
+    return render_template('detalhes_brinquedo.html', brinquedo=brinquedo, emprestimos=emprestimos)

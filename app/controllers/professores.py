@@ -22,6 +22,7 @@ def lista_de_professores():
     return render_template('lista_de_professores.html', professores=professores)
 
 @app.route('/professores/lista/<int:id>')
-def perfil_professor(id):
+def detalhes_professor(id):
     professor = Professor.query.get_or_404(id)
-    return render_template('perfil_professor.html', professor=professor)
+    emprestimos = professor.emprestimos
+    return render_template('detalhes_professor.html', professor=professor, emprestimos=emprestimos)
